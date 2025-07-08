@@ -5,6 +5,10 @@ vars:
   DOCKER_MCP_CLI_PLUGIN_DST: $HOME/.docker/cli-plugins/docker-agent
 
 tasks:
+  tidy:
+    desc: Tidy the project
+    cmd: go mod tidy
+
   build:
     desc: Build the agent plugin
     cmd: go build -o ./bin/docker-agent ./cmd/agent
@@ -17,3 +21,7 @@ tasks:
     cmds:
       - rm {{.DOCKER_MCP_CLI_PLUGIN_DST}} || true
       - cp ./bin/docker-agent {{.DOCKER_MCP_CLI_PLUGIN_DST}}
+  
+  generate-from-mcp:
+    desc: Generate agents from the mcp registry
+    cmd: go run ./cmd/generate
