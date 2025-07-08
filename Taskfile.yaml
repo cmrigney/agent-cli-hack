@@ -1,0 +1,19 @@
+version: "3"
+
+vars:
+  # Assumes MacOS
+  DOCKER_MCP_CLI_PLUGIN_DST: $HOME/.docker/cli-plugins/docker-agent
+
+tasks:
+  build:
+    desc: Build the agent plugin
+    cmd: go build -o ./bin/docker-agent ./cmd/agent
+    env:
+      CGO_ENABLED: 0
+  
+  install:
+    desc: Install the agent plugin
+    deps: [build]
+    cmds:
+      - rm {{.DOCKER_MCP_CLI_PLUGIN_DST}} || true
+      - cp ./bin/docker-agent {{.DOCKER_MCP_CLI_PLUGIN_DST}}
