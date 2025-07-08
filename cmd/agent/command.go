@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/cmrigney/agent-cli-hack/internal/agentrunner"
+	"github.com/cmrigney/agent-cli-hack/internal/registry"
 	"github.com/docker/cli/cli-plugins/plugin"
 	"github.com/spf13/cobra"
 )
@@ -41,15 +43,23 @@ func rootCommand(ctx context.Context) *cobra.Command {
 }
 
 func enableCommand() *cobra.Command {
+	var useLocal bool
+
 	cmd := &cobra.Command{
 		Use:   "enable",
 		Args:  cobra.ExactArgs(1),
 		Short: "Enable an agent",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("Enabling agent", args[0])
+			if err := registry.EnableServer(cmd.Context(), args[0], useLocal); err != nil {
+				return err
+			}
+
+			fmt.Println("Enabled agent", args[0])
 			return nil
 		},
 	}
+
+	cmd.Flags().BoolVar(&useLocal, "use-local", false, "Use local files instead of fetching from the registry")
 
 	return cmd
 }
@@ -60,7 +70,11 @@ func disableCommand() *cobra.Command {
 		Args:  cobra.ExactArgs(1),
 		Short: "Disable an agent",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("Disabling agent", args[0])
+			if err := registry.DisableServer(args[0]); err != nil {
+				return err
+			}
+
+			fmt.Println("Enabled agent", args[0])
 			return nil
 		},
 	}
@@ -69,15 +83,22 @@ func disableCommand() *cobra.Command {
 }
 
 func runCommand() *cobra.Command {
+	options := agentrunner.Options{
+		Model:         "gpt-4o",
+		UseLocalFiles: false,
+	}
+
 	cmd := &cobra.Command{
 		Use:   "run",
 		Args:  cobra.NoArgs,
 		Short: "Interact with the agent team",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("Running agent team")
-			return nil
+			return agentrunner.NewAgentRunner(options).Run(cmd.Context())
 		},
 	}
+
+	cmd.Flags().StringVar(&options.Model, "model", "gpt-4o", "Model to use for the agents")
+	cmd.Flags().BoolVar(&options.UseLocalFiles, "use-local", false, "Use local files instead of fetching from the registry")
 
 	return cmd
 }
