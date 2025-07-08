@@ -1,0 +1,17 @@
+name: heroku_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Heroku Platform MCP Server using the Heroku CLI.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/heroku
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the heroku mcp server. Its description is as follows:
+    ```Heroku Platform MCP Server using the Heroku CLI.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

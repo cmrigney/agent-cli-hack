@@ -1,0 +1,17 @@
+name: github-official_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Official GitHub MCP Server, by GitHub. Provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/github-official
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the github-official mcp server. Its description is as follows:
+    ```Official GitHub MCP Server, by GitHub. Provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

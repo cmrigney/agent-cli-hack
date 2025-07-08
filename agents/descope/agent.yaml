@@ -1,0 +1,17 @@
+name: descope_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: The Descope Model Context Protocol (MCP) server provides an interface to interact with Descope''s Management APIs, enabling the search and retrieval of project-related information.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/descope
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the descope mcp server. Its description is as follows:
+    ```The Descope Model Context Protocol (MCP) server provides an interface to interact with Descope's Management APIs, enabling the search and retrieval of project-related information.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: securenote-link-mcp-server_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: SecureNote.link MCP Server - allowing AI agents to securely share sensitive information through end-to-end encrypted notes.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/securenote-link-mcp-server
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the securenote-link-mcp-server mcp server. Its description is as follows:
+    ```SecureNote.link MCP Server - allowing AI agents to securely share sensitive information through end-to-end encrypted notes.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

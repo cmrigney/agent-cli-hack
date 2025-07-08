@@ -1,0 +1,17 @@
+name: obsidian_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP server that interacts with Obsidian via the Obsidian rest API community plugin.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/obsidian
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the obsidian mcp server. Its description is as follows:
+    ```MCP server that interacts with Obsidian via the Obsidian rest API community plugin.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: node-code-sandbox_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A Node.js–based Model Context Protocol server that spins up disposable Docker containers to execute arbitrary JavaScript.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/node-code-sandbox
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the node-code-sandbox mcp server. Its description is as follows:
+    ```A Node.js–based Model Context Protocol server that spins up disposable Docker containers to execute arbitrary JavaScript.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

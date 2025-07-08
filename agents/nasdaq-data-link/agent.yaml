@@ -1,0 +1,17 @@
+name: nasdaq-data-link_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP server to interact with the data feeds provided by the Nasdaq Data Link. Developed by the community and maintained by Stefano Amorelli.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/nasdaq-data-link
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the nasdaq-data-link mcp server. Its description is as follows:
+    ```MCP server to interact with the data feeds provided by the Nasdaq Data Link. Developed by the community and maintained by Stefano Amorelli.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

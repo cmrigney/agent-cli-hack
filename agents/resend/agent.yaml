@@ -1,0 +1,17 @@
+name: resend_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Send emails directly from Cursor with this email sending MCP server.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/resend
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the resend mcp server. Its description is as follows:
+    ```Send emails directly from Cursor with this email sending MCP server.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

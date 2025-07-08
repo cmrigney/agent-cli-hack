@@ -1,0 +1,17 @@
+name: aws-diagram_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/aws-diagram
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the aws-diagram mcp server. Its description is as follows:
+    ```Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: google-maps_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Tools for interacting with the Google Maps API.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/google-maps
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the google-maps mcp server. Its description is as follows:
+    ```Tools for interacting with the Google Maps API.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

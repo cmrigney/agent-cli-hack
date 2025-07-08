@@ -1,0 +1,17 @@
+name: redis-cloud_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP Server for Redis Cloud''s API, allowing you to manage your Redis Cloud resources using natural language.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/redis-cloud
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the redis-cloud mcp server. Its description is as follows:
+    ```MCP Server for Redis Cloud's API, allowing you to manage your Redis Cloud resources using natural language.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

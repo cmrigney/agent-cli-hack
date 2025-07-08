@@ -1,0 +1,17 @@
+name: hackle_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Model Context Protocol server for Hackle.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/hackle
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the hackle mcp server. Its description is as follows:
+    ```Model Context Protocol server for Hackle.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

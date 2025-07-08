@@ -1,0 +1,17 @@
+name: line_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP server that integrates the LINE Messaging API to connect an AI Agent to the LINE Official Account.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/line
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the line mcp server. Its description is as follows:
+    ```MCP server that integrates the LINE Messaging API to connect an AI Agent to the LINE Official Account.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: husqvarna-automower_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP Server for huqsvarna automower.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/husqvarna-automower
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the husqvarna-automower mcp server. Its description is as follows:
+    ```MCP Server for huqsvarna automower.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

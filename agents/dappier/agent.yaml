@@ -1,0 +1,17 @@
+name: dappier_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Enable fast, free real-time web search and access premium data from trusted media brands—news, financial markets, sports, entertainment, weather, and more. Build powerful AI agents with Dappier.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/dappier
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the dappier mcp server. Its description is as follows:
+    ```Enable fast, free real-time web search and access premium data from trusted media brands—news, financial markets, sports, entertainment, weather, and more. Build powerful AI agents with Dappier.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: curl_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Standard curl tool.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/curl
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the curl mcp server. Its description is as follows:
+    ```Standard curl tool.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

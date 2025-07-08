@@ -1,0 +1,17 @@
+name: render_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Interact with your Render resources via LLMs.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/render
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the render mcp server. Its description is as follows:
+    ```Interact with your Render resources via LLMs.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

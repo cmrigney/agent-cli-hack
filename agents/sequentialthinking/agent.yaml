@@ -1,0 +1,17 @@
+name: sequentialthinking_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Dynamic and reflective problem-solving through thought sequences.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/sequentialthinking
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the sequentialthinking mcp server. Its description is as follows:
+    ```Dynamic and reflective problem-solving through thought sequences.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

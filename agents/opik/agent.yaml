@@ -1,0 +1,17 @@
+name: opik_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Model Context Protocol (MCP) implementation for Opik enabling seamless IDE integration and unified access to prompts, projects, traces, and metrics.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/opik
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the opik mcp server. Its description is as follows:
+    ```Model Context Protocol (MCP) implementation for Opik enabling seamless IDE integration and unified access to prompts, projects, traces, and metrics.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

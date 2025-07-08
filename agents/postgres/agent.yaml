@@ -1,0 +1,17 @@
+name: postgres_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Connect with read-only access to PostgreSQL databases. This server enables LLMs to inspect database schemas and execute read-only queries.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/postgres
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the postgres mcp server. Its description is as follows:
+    ```Connect with read-only access to PostgreSQL databases. This server enables LLMs to inspect database schemas and execute read-only queries.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: glif_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Easily run glif.app AI workflows inside your LLM: image generators, memes, selfies, and more. Glif supports all major multimedia AI models inside one app.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/glif
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the glif mcp server. Its description is as follows:
+    ```Easily run glif.app AI workflows inside your LLM: image generators, memes, selfies, and more. Glif supports all major multimedia AI models inside one app.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: azure_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: The Azure MCP Server, bringing the power of Azure to your agents.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/azure
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the azure mcp server. Its description is as follows:
+    ```The Azure MCP Server, bringing the power of Azure to your agents.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

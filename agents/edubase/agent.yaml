@@ -1,0 +1,17 @@
+name: edubase_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: The EduBase MCP server enables Claude and other LLMs to interact with EduBase''s comprehensive e-learning platform through the Model Context Protocol (MCP).'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/edubase
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the edubase mcp server. Its description is as follows:
+    ```The EduBase MCP server enables Claude and other LLMs to interact with EduBase's comprehensive e-learning platform through the Model Context Protocol (MCP).```
+    Your purpose is to fulfill requests using the mcp server tools provided.

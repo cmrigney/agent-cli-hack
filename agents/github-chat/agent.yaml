@@ -1,0 +1,17 @@
+name: github-chat_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A Model Context Protocol (MCP) for analyzing and querying GitHub repositories using the GitHub Chat API.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/github-chat
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the github-chat mcp server. Its description is as follows:
+    ```A Model Context Protocol (MCP) for analyzing and querying GitHub repositories using the GitHub Chat API.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

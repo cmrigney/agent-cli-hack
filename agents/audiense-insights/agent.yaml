@@ -1,0 +1,17 @@
+name: audiense-insights_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Audiense Insights MCP Server is a server based on the Model Context Protocol (MCP) that allows Claude and other MCP-compatible clients to interact with your Audiense Insights account.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/audiense-insights
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the audiense-insights mcp server. Its description is as follows:
+    ```Audiense Insights MCP Server is a server based on the Model Context Protocol (MCP) that allows Claude and other MCP-compatible clients to interact with your Audiense Insights account.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: mongodb_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/mongodb
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the mongodb mcp server. Its description is as follows:
+    ```A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

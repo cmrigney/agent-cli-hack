@@ -1,0 +1,17 @@
+name: gitlab_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP Server for the GitLab API, enabling project management, file operations, and more.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/gitlab
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the gitlab mcp server. Its description is as follows:
+    ```MCP Server for the GitLab API, enabling project management, file operations, and more.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

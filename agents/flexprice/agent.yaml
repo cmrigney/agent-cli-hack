@@ -1,0 +1,17 @@
+name: flexprice_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Official flexprice MCP Server.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/flexprice
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the flexprice mcp server. Its description is as follows:
+    ```Official flexprice MCP Server.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

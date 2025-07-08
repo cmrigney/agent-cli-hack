@@ -1,0 +1,17 @@
+name: Ref_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Ref powerful search tool connets your coding tools with documentation context. It includes an up-to-date index of public documentation and it can ingest your private documentation (eg. GitHub repos, PDFs) as well.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/Ref
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the Ref mcp server. Its description is as follows:
+    ```Ref powerful search tool connets your coding tools with documentation context. It includes an up-to-date index of public documentation and it can ingest your private documentation (eg. GitHub repos, PDFs) as well.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: desktop-commander_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Search, update, manage files and run terminal commands with AI.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/desktop-commander
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the desktop-commander mcp server. Its description is as follows:
+    ```Search, update, manage files and run terminal commands with AI.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

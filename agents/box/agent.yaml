@@ -1,0 +1,17 @@
+name: box_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: An MCP server capable of interacting with the Box API.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/box
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the box mcp server. Its description is as follows:
+    ```An MCP server capable of interacting with the Box API.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

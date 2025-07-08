@@ -1,0 +1,17 @@
+name: pulumi_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Pulumi MCP Server.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/pulumi
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the pulumi mcp server. Its description is as follows:
+    ```Pulumi MCP Server.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

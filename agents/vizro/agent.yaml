@@ -1,0 +1,17 @@
+name: vizro_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: provides tools and templates to create a functioning Vizro chart or dashboard step by step.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/vizro
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the vizro mcp server. Its description is as follows:
+    ```provides tools and templates to create a functioning Vizro chart or dashboard step by step.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: git_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Git repository interaction and automation.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/git
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the git mcp server. Its description is as follows:
+    ```Git repository interaction and automation.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

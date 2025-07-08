@@ -1,0 +1,17 @@
+name: aws-core-mcp-server_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Starting point for using the awslabs MCP servers.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/aws-core-mcp-server
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the aws-core-mcp-server mcp server. Its description is as follows:
+    ```Starting point for using the awslabs MCP servers.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

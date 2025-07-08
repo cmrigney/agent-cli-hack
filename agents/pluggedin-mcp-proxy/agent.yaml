@@ -1,0 +1,17 @@
+name: pluggedin-mcp-proxy_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A unified MCP proxy that aggregates multiple MCP servers into one interface, enabling seamless tool discovery and management across all your AI interactions. Manage all your MCP servers from a single connection point with RAG capabilities and real-time notifications.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/pluggedin-mcp-proxy
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the pluggedin-mcp-proxy mcp server. Its description is as follows:
+    ```A unified MCP proxy that aggregates multiple MCP servers into one interface, enabling seamless tool discovery and management across all your AI interactions. Manage all your MCP servers from a single connection point with RAG capabilities and real-time notifications.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

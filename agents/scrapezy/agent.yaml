@@ -1,0 +1,17 @@
+name: scrapezy_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A Model Context Protocol server for Scrapezy that enables AI models to extract structured data from websites.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/scrapezy
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the scrapezy mcp server. Its description is as follows:
+    ```A Model Context Protocol server for Scrapezy that enables AI models to extract structured data from websites.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

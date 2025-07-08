@@ -1,0 +1,17 @@
+name: keboola-mcp_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/keboola-mcp
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the keboola-mcp mcp server. Its description is as follows:
+    ```Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

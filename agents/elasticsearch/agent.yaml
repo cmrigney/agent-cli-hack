@@ -1,0 +1,17 @@
+name: elasticsearch_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Interact with your Elasticsearch indices through natural language conversations.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/elasticsearch
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the elasticsearch mcp server. Its description is as follows:
+    ```Interact with your Elasticsearch indices through natural language conversations.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

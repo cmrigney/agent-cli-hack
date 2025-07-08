@@ -1,0 +1,17 @@
+name: youtube_transcript_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Retrieves transcripts for given YouTube video URLs.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/youtube_transcript
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the youtube_transcript mcp server. Its description is as follows:
+    ```Retrieves transcripts for given YouTube video URLs.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

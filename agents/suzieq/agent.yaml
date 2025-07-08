@@ -1,0 +1,17 @@
+name: suzieq_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP Server to interact with a SuzieQ network observability instance via its REST API.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/suzieq
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the suzieq mcp server. Its description is as follows:
+    ```MCP Server to interact with a SuzieQ network observability instance via its REST API.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

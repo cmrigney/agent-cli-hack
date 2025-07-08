@@ -1,0 +1,17 @@
+name: bitrefill_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A Model Context Protocol Server connector for Bitrefill public API, to enable AI agents to search and shop on Bitrefill.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/bitrefill
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the bitrefill mcp server. Its description is as follows:
+    ```A Model Context Protocol Server connector for Bitrefill public API, to enable AI agents to search and shop on Bitrefill.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

@@ -1,0 +1,17 @@
+name: tigris_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Tigris is a globally distributed S3-compatible object storage service that provides low latency anywhere in the world, enabling developers to store and access any amount of data for a wide range of use cases.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/tigris
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the tigris mcp server. Its description is as follows:
+    ```Tigris is a globally distributed S3-compatible object storage service that provides low latency anywhere in the world, enabling developers to store and access any amount of data for a wide range of use cases.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

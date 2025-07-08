@@ -1,0 +1,17 @@
+name: hyperbrowser_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: A MCP server implementation for hyperbrowser.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/hyperbrowser
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the hyperbrowser mcp server. Its description is as follows:
+    ```A MCP server implementation for hyperbrowser.```
+    Your purpose is to fulfill requests using the mcp server tools provided.

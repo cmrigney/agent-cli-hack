@@ -1,0 +1,17 @@
+name: wolfram-alpha_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: Connect your chat repl to wolfram alpha computational intelligence.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers={{.Root}}/wolfram-alpha
+        - --config={{.Root}}/gateway-config.yaml
+        - --secrets={{.Root}}/.gateway-secrets
+instruction: |-
+    You are an agent that specializes in using the wolfram-alpha mcp server. Its description is as follows:
+    ```Connect your chat repl to wolfram alpha computational intelligence.```
+    Your purpose is to fulfill requests using the mcp server tools provided.
