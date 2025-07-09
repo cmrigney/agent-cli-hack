@@ -38,6 +38,7 @@ func rootCommand(ctx context.Context) *cobra.Command {
 	cmd.AddCommand(runCommand())
 	cmd.AddCommand(enableCommand())
 	cmd.AddCommand(disableCommand())
+	cmd.AddCommand(listCommand())
 
 	return cmd
 }
@@ -50,7 +51,7 @@ func enableCommand() *cobra.Command {
 		Args:  cobra.ExactArgs(1),
 		Short: "Enable an agent",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			if err := registry.EnableServer(cmd.Context(), args[0], useLocal); err != nil {
+			if err := registry.EnableAgent(cmd.Context(), args[0], useLocal); err != nil {
 				return err
 			}
 
@@ -70,11 +71,33 @@ func disableCommand() *cobra.Command {
 		Args:  cobra.ExactArgs(1),
 		Short: "Disable an agent",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			if err := registry.DisableServer(args[0]); err != nil {
+			if err := registry.DisableAgent(args[0]); err != nil {
 				return err
 			}
 
-			fmt.Println("Enabled agent", args[0])
+			fmt.Println("Disabled agent", args[0])
+			return nil
+		},
+	}
+
+	return cmd
+}
+
+func listCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "ls",
+		Args:  cobra.NoArgs,
+		Short: "List all enabled agents",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			agents, err := registry.ListAgents()
+			if err != nil {
+				return err
+			}
+
+			for _, agent := range agents {
+				fmt.Println(agent)
+			}
+
 			return nil
 		},
 	}

@@ -11,7 +11,7 @@ import (
 
 // https://raw.githubusercontent.com/cmrigney/agent-cli-hack/refs/heads/main/agents/astra-db/agent.yaml
 
-func EnableServer(ctx context.Context, name string, useLocal bool) error {
+func EnableAgent(ctx context.Context, name string, useLocal bool) error {
 	if err := ensureRegistryFile(); err != nil {
 		return err
 	}
@@ -39,7 +39,7 @@ func EnableServer(ctx context.Context, name string, useLocal bool) error {
 	return nil
 }
 
-func DisableServer(name string) error {
+func DisableAgent(name string) error {
 	if err := ensureRegistryFile(); err != nil {
 		return err
 	}
@@ -56,6 +56,24 @@ func DisableServer(name string) error {
 	}
 
 	return nil
+}
+
+func ListAgents() ([]string, error) {
+	if err := ensureRegistryFile(); err != nil {
+		return nil, err
+	}
+
+	registry, err := read()
+	if err != nil {
+		return nil, err
+	}
+
+	agents := make([]string, 0, len(registry.Agents))
+	for name := range registry.Agents {
+		agents = append(agents, name)
+	}
+
+	return agents, nil
 }
 
 func GetRegisteredAgents(ctx context.Context, model config.TemplateModel, useLocal bool) ([]config.AgentConfig, error) {
