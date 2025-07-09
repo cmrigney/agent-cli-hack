@@ -111,7 +111,7 @@ func runCommand() *cobra.Command {
 		UseLocalFiles: false,
 		CagentPath:    "../cagent/bin/cagent", // assume it's one level up
 		Web:           false,
-		Verbose:       false,
+		Debug:         false,
 	}
 
 	cmd := &cobra.Command{
@@ -127,7 +127,7 @@ func runCommand() *cobra.Command {
 	cmd.Flags().BoolVar(&options.UseLocalFiles, "use-local", false, "Use local files instead of fetching from the registry")
 	cmd.Flags().StringVar(&options.CagentPath, "cagent", "../cagent/bin/cagent", "Path to the cagent binary")
 	cmd.Flags().BoolVar(&options.Web, "web", false, "Run the cagent web interface instead of the CLI")
-	cmd.Flags().BoolVar(&options.Verbose, "verbose", false, "Verbose output")
+	cmd.Flags().BoolVar(&options.Debug, "debug", false, "Debug mode provides verbose output")
 
 	return cmd
 }

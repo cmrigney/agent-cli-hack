@@ -19,18 +19,33 @@ type Options struct {
 	UseLocalFiles bool
 	CagentPath    string
 	Web           bool
-	Verbose       bool
+	Debug         bool
 }
 
 func (o *Options) Validate() error {
 	switch o.Model {
 	case "gpt-4o":
+	case "claude-4-sonnet-latest":
+	case "claude-3-sonnet-latest":
 		break
 	default:
 		return fmt.Errorf("model %s is not supported", o.Model)
 	}
 
 	return nil
+}
+
+func typeFromModel(model string) string {
+	switch model {
+	case "gpt-4o":
+		return "openai"
+	case "claude-4-sonnet-latest":
+		return "anthropic"
+	case "claude-3-sonnet-latest":
+		return "anthropic"
+	}
+
+	return "unknown"
 }
 
 type AgentRunner struct {
@@ -95,9 +110,8 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 	config := config.Config{
 		Agents: allAgents,
 		Models: map[string]config.ModelConfig{
-			// TODO add more models
 			r.options.Model: {
-				Type:  "openai",
+				Type:  typeFromModel(r.options.Model),
 				Model: r.options.Model,
 			},
 		},
@@ -139,7 +153,7 @@ func (r *AgentRunner) copyAgentFiles(rootDir string, config config.Config) (stri
 		return "", err
 	}
 
-	if r.options.Verbose {
+	if r.options.Debug {
 		fmt.Println("Writing agents.yaml:")
 		fmt.Println("--------------------------------")
 		fmt.Println(string(yaml))
