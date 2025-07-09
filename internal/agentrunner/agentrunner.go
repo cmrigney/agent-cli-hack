@@ -19,6 +19,7 @@ type Options struct {
 	UseLocalFiles bool
 	CagentPath    string
 	Web           bool
+	Verbose       bool
 }
 
 func (o *Options) Validate() error {
@@ -102,7 +103,7 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 		},
 	}
 
-	agentFile, err := copyAgentFiles(tempDir, config)
+	agentFile, err := r.copyAgentFiles(tempDir, config)
 	if err != nil {
 		return err
 	}
@@ -132,10 +133,17 @@ func (r *AgentRunner) runCagentWeb(ctx context.Context, agentFile string) error 
 	return cmd.Run()
 }
 
-func copyAgentFiles(rootDir string, config config.Config) (string, error) {
+func (r *AgentRunner) copyAgentFiles(rootDir string, config config.Config) (string, error) {
 	yaml, err := yaml.Marshal(config)
 	if err != nil {
 		return "", err
+	}
+
+	if r.options.Verbose {
+		fmt.Println("Writing agents.yaml:")
+		fmt.Println("--------------------------------")
+		fmt.Println(string(yaml))
+		fmt.Println("--------------------------------")
 	}
 
 	configPath := filepath.Join(rootDir, "agents.yaml")
