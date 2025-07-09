@@ -18,6 +18,7 @@ type Options struct {
 	Model         string
 	UseLocalFiles bool
 	CagentPath    string
+	Web           bool
 }
 
 func (o *Options) Validate() error {
@@ -106,15 +107,24 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 		return err
 	}
 
-	if err := r.runCagent(ctx, agentFile); err != nil {
-		return err
+	if r.options.Web {
+		return r.runCagentWeb(ctx, agentFile)
 	}
 
-	return nil
+	return r.runCagent(ctx, agentFile)
 }
 
 func (r *AgentRunner) runCagent(ctx context.Context, agentFile string) error {
 	cmd := exec.CommandContext(ctx, r.options.CagentPath, "run", agentFile)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	return cmd.Run()
+}
+
+func (r *AgentRunner) runCagentWeb(ctx context.Context, agentFile string) error {
+	cmd := exec.CommandContext(ctx, r.options.CagentPath, "web", "-d", filepath.Dir(agentFile))
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
