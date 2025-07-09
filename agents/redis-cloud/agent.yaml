@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/redis-cloud
+        - --servers=redis-cloud
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the redis-cloud mcp server. Its description is as follows:
     ```MCP Server for Redis Cloud's API, allowing you to manage your Redis Cloud resources using natural language.```

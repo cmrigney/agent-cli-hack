@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/lara
+        - --servers=lara
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the lara mcp server. Its description is as follows:
     ```Connect to Lara Translate API, enabling powerful translation capabilities with support for language detection and context-aware translations.```

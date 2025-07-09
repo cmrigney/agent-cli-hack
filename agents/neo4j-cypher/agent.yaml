@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/neo4j-cypher
+        - --servers=neo4j-cypher
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the neo4j-cypher mcp server. Its description is as follows:
     ```Interact with Neo4j using Cypher graph queries.```

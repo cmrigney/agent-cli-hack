@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/fetch
+        - --servers=fetch
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the fetch mcp server. Its description is as follows:
     ```Fetches a URL from the internet and extracts its contents as markdown.```

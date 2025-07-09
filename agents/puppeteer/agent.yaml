@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/puppeteer
+        - --servers=puppeteer
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the puppeteer mcp server. Its description is as follows:
     ```Browser automation and web scraping using Puppeteer.```

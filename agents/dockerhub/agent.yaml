@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/dockerhub
+        - --servers=dockerhub
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the dockerhub mcp server. Its description is as follows:
     ```Docker Hub official MCP server.```

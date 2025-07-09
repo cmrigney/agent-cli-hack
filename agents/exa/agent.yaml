@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/exa
+        - --servers=exa
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the exa mcp server. Its description is as follows:
     ```Exa is a Web Search API | This is Exa MCP (Model Context Protocol).```

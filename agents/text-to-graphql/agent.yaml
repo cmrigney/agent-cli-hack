@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/text-to-graphql
+        - --servers=text-to-graphql
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the text-to-graphql mcp server. Its description is as follows:
     ```Transform natural language queries into GraphQL queries using an AI agent. Provides schema management, query validation, execution, and history tracking.```

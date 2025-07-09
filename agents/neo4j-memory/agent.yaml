@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/neo4j-memory
+        - --servers=neo4j-memory
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the neo4j-memory mcp server. Its description is as follows:
     ```Provide persistent memory capabilities through Neo4j graph database integration.```

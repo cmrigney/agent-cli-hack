@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/iaptic
+        - --servers=iaptic
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the iaptic mcp server. Its description is as follows:
     ```Model Context Protocol server for interacting with iaptic.```

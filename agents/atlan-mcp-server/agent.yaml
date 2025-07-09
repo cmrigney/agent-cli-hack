@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/atlan-mcp-server
+        - --servers=atlan-mcp-server
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the atlan-mcp-server mcp server. Its description is as follows:
     ```MCP server for interacting with Atlan services including asset search, updates, and lineage traversal for comprehensive data governance and discovery.```

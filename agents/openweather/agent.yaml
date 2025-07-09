@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/openweather
+        - --servers=openweather
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the openweather mcp server. Its description is as follows:
     ```A simple MCP service that provides current weather and 5-day forecast using the free OpenWeatherMap API.```

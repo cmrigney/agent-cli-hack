@@ -66,9 +66,8 @@ func convertToAgentConfig(server catalog.TileEntry) config.AgentConfig {
 				Command: "docker",
 				Args: []string{
 					"mcp", "gateway", "run",
-					"--servers={{.Root}}/" + server.Name,
+					"--servers=" + server.Name,
 					"--config={{.Root}}/gateway-config.yaml",
-					"--secrets={{.Root}}/.gateway-secrets",
 				},
 			},
 		},

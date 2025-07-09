@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/wikipedia-mcp
+        - --servers=wikipedia-mcp
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the wikipedia-mcp mcp server. Its description is as follows:
     ```A Model Context Protocol (MCP) server that retrieves information from Wikipedia to provide context to LLMs.```

@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/kubernetes
+        - --servers=kubernetes
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the kubernetes mcp server. Its description is as follows:
     ```Connect to a Kubernetes cluster and manage it.```

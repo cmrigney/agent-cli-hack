@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/astra-db
+        - --servers=astra-db
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the astra-db mcp server. Its description is as follows:
     ```An MCP server for Astra DB workloads.```

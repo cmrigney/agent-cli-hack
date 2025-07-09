@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/elevenlabs
+        - --servers=elevenlabs
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the elevenlabs mcp server. Its description is as follows:
     ```The official ElevenLabs MCP server.```

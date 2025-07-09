@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/npm-sentinel
+        - --servers=npm-sentinel
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the npm-sentinel mcp server. Its description is as follows:
     ```MCP server that enables intelligent NPM package analysis powered by AI.```

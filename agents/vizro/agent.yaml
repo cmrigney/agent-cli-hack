@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/vizro
+        - --servers=vizro
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the vizro mcp server. Its description is as follows:
     ```provides tools and templates to create a functioning Vizro chart or dashboard step by step.```

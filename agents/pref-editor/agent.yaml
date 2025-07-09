@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/pref-editor
+        - --servers=pref-editor
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the pref-editor mcp server. Its description is as follows:
     ```Pref Editor is a tool for viewing and editing Android app preferences during development.```

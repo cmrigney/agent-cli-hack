@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/firecrawl
+        - --servers=firecrawl
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the firecrawl mcp server. Its description is as follows:
     ```Official Firecrawl MCP Server - Adds powerful web scraping to Cursor, Claude and any other LLM clients.```

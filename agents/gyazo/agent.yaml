@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/gyazo
+        - --servers=gyazo
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the gyazo mcp server. Its description is as follows:
     ```Official Model Context Protocol server for Gyazo.```

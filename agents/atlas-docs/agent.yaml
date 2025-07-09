@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/atlas-docs
+        - --servers=atlas-docs
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the atlas-docs mcp server. Its description is as follows:
     ```Provide LLMs hosted, clean markdown documentation of libraries and frameworks.```

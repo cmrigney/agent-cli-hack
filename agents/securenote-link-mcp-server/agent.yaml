@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/securenote-link-mcp-server
+        - --servers=securenote-link-mcp-server
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the securenote-link-mcp-server mcp server. Its description is as follows:
     ```SecureNote.link MCP Server - allowing AI agents to securely share sensitive information through end-to-end encrypted notes.```

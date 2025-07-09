@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/razorpay
+        - --servers=razorpay
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the razorpay mcp server. Its description is as follows:
     ```Razorpay's Official MCP Server.```

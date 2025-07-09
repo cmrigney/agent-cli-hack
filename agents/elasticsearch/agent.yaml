@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/elasticsearch
+        - --servers=elasticsearch
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the elasticsearch mcp server. Its description is as follows:
     ```Interact with your Elasticsearch indices through natural language conversations.```

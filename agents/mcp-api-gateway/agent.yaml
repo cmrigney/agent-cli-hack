@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/mcp-api-gateway
+        - --servers=mcp-api-gateway
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the mcp-api-gateway mcp server. Its description is as follows:
     ```A universal MCP (Model Context Protocol) server to integrate any API with Claude Desktop using only Docker configurations.```

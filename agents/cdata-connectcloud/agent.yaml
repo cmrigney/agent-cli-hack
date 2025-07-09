@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/cdata-connectcloud
+        - --servers=cdata-connectcloud
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the cdata-connectcloud mcp server. Its description is as follows:
     ```This full functional MCP Server allows you to connect to any data source in Connect Cloud from Claude Desktop.```

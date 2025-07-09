@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/gitlab
+        - --servers=gitlab
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the gitlab mcp server. Its description is as follows:
     ```MCP Server for the GitLab API, enabling project management, file operations, and more.```

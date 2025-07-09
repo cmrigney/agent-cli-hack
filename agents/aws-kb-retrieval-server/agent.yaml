@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/aws-kb-retrieval-server
+        - --servers=aws-kb-retrieval-server
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the aws-kb-retrieval-server mcp server. Its description is as follows:
     ```An MCP server implementation for retrieving information from the AWS Knowledge Base using the Bedrock Agent Runtime.```

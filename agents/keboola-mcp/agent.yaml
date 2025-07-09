@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/keboola-mcp
+        - --servers=keboola-mcp
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the keboola-mcp mcp server. Its description is as follows:
     ```Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools.```

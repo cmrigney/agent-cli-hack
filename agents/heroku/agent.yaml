@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/heroku
+        - --servers=heroku
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the heroku mcp server. Its description is as follows:
     ```Heroku Platform MCP Server using the Heroku CLI.```

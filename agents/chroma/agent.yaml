@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/chroma
+        - --servers=chroma
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the chroma mcp server. Its description is as follows:
     ```A Model Context Protocol (MCP) server implementation that provides database capabilities for Chroma.```

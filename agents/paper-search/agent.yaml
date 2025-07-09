@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/paper-search
+        - --servers=paper-search
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the paper-search mcp server. Its description is as follows:
     ```A MCP for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.```

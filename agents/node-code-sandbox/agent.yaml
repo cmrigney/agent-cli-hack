@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/node-code-sandbox
+        - --servers=node-code-sandbox
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the node-code-sandbox mcp server. Its description is as follows:
     ```A Node.js–based Model Context Protocol server that spins up disposable Docker containers to execute arbitrary JavaScript.```

@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/context7
+        - --servers=context7
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the context7 mcp server. Its description is as follows:
     ```Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors.```

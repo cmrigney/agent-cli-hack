@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/handwriting-ocr
+        - --servers=handwriting-ocr
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the handwriting-ocr mcp server. Its description is as follows:
     ```Model Context Protocol (MCP) Server for Handwriting OCR.```

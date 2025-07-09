@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/neo4j-cloud-aura-api
+        - --servers=neo4j-cloud-aura-api
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the neo4j-cloud-aura-api mcp server. Its description is as follows:
     ```Manage Neo4j Aura database instances through the Neo4j Aura API.```

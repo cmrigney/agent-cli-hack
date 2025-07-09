@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/sonarqube
+        - --servers=sonarqube
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the sonarqube mcp server. Its description is as follows:
     ```Interact with SonarQube Cloud, Server and Community build over the web API. Analyze code to identify quality and security issues.```

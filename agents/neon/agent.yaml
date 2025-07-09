@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/neon
+        - --servers=neon
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the neon mcp server. Its description is as follows:
     ```MCP server for interacting with Neon Management API and databases.```

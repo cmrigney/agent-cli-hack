@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/resend
+        - --servers=resend
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the resend mcp server. Its description is as follows:
     ```Send emails directly from Cursor with this email sending MCP server.```

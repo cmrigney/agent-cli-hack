@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/youtube_transcript
+        - --servers=youtube_transcript
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the youtube_transcript mcp server. Its description is as follows:
     ```Retrieves transcripts for given YouTube video URLs.```

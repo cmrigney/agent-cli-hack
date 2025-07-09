@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/aws-core-mcp-server
+        - --servers=aws-core-mcp-server
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the aws-core-mcp-server mcp server. Its description is as follows:
     ```Starting point for using the awslabs MCP servers.```

@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/wolfram-alpha
+        - --servers=wolfram-alpha
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the wolfram-alpha mcp server. Its description is as follows:
     ```Connect your chat repl to wolfram alpha computational intelligence.```

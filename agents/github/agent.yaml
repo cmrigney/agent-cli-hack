@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/github
+        - --servers=github
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the github mcp server. Its description is as follows:
     ```Tools for interacting with the GitHub API, enabling file operations, repository management, search functionality, and more.```

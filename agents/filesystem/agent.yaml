@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/filesystem
+        - --servers=filesystem
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the filesystem mcp server. Its description is as follows:
     ```Local filesystem access with configurable allowed paths.```

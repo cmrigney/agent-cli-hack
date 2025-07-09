@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/husqvarna-automower
+        - --servers=husqvarna-automower
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the husqvarna-automower mcp server. Its description is as follows:
     ```MCP Server for huqsvarna automower.```

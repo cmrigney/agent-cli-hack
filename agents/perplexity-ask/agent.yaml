@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/perplexity-ask
+        - --servers=perplexity-ask
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the perplexity-ask mcp server. Its description is as follows:
     ```Connector for Perplexity API, to enable real-time, web-wide research.```

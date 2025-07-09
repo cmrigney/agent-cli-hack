@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/stripe
+        - --servers=stripe
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the stripe mcp server. Its description is as follows:
     ```Interact with Stripe services over the Stripe API.```

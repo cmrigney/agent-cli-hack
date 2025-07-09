@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/nasdaq-data-link
+        - --servers=nasdaq-data-link
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the nasdaq-data-link mcp server. Its description is as follows:
     ```MCP server to interact with the data feeds provided by the Nasdaq Data Link. Developed by the community and maintained by Stefano Amorelli.```

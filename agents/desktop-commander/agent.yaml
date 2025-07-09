@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/desktop-commander
+        - --servers=desktop-commander
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the desktop-commander mcp server. Its description is as follows:
     ```Search, update, manage files and run terminal commands with AI.```

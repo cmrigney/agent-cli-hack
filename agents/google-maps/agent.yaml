@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/google-maps
+        - --servers=google-maps
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the google-maps mcp server. Its description is as follows:
     ```Tools for interacting with the Google Maps API.```

@@ -8,9 +8,8 @@ toolsets:
         - mcp
         - gateway
         - run
-        - --servers={{.Root}}/veyrax
+        - --servers=veyrax
         - --config={{.Root}}/gateway-config.yaml
-        - --secrets={{.Root}}/.gateway-secrets
 instruction: |-
     You are an agent that specializes in using the veyrax mcp server. Its description is as follows:
     ```VeyraX MCP is the only connection you need to access all your tools in any MCP-compatible environment.```
