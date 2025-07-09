@@ -3,15 +3,21 @@ package agentrunner
 import (
 	"context"
 	"fmt"
+	"io"
+	"os"
+	"os/exec"
+	"path/filepath"
 
 	"github.com/cmrigney/agent-cli-hack/internal/config"
 	"github.com/cmrigney/agent-cli-hack/internal/registry"
+	"github.com/cmrigney/agent-cli-hack/internal/user"
 	"gopkg.in/yaml.v3"
 )
 
 type Options struct {
 	Model         string
 	UseLocalFiles bool
+	CagentPath    string
 }
 
 func (o *Options) Validate() error {
@@ -40,9 +46,15 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 		return err
 	}
 
+	tempDir, err := os.MkdirTemp("", "agent-cli-hack")
+	if err != nil {
+		return err
+	}
+	defer os.RemoveAll(tempDir)
+
 	templateModel := config.TemplateModel{
 		Model: r.options.Model,
-		Root:  "testpath",
+		Root:  tempDir,
 	}
 
 	agents, err := registry.GetRegisteredAgents(ctx, templateModel, r.options.UseLocalFiles)
@@ -89,11 +101,72 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 		},
 	}
 
-	yaml, err := yaml.Marshal(config)
+	agentFile, err := copyAgentFiles(tempDir, config)
 	if err != nil {
 		return err
 	}
 
-	fmt.Println(string(yaml))
+	if err := r.runCagent(ctx, agentFile); err != nil {
+		return err
+	}
+
 	return nil
+}
+
+func (r *AgentRunner) runCagent(ctx context.Context, agentFile string) error {
+	cmd := exec.CommandContext(ctx, r.options.CagentPath, "run", agentFile)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	return cmd.Run()
+}
+
+func copyAgentFiles(rootDir string, config config.Config) (string, error) {
+	yaml, err := yaml.Marshal(config)
+	if err != nil {
+		return "", err
+	}
+
+	configPath := filepath.Join(rootDir, "agents.yaml")
+	if err := os.WriteFile(configPath, yaml, 0644); err != nil {
+		return "", err
+	}
+
+	mcpRoot, err := mcpToolkitRoot()
+	if err != nil {
+		return "", err
+	}
+
+	if err := copyFile(filepath.Join(mcpRoot, "config.yaml"), filepath.Join(rootDir, "gateway-config.yaml")); err != nil {
+		return "", err
+	}
+
+	return filepath.Join(rootDir, "agents.yaml"), nil
+}
+
+func copyFile(src, dst string) error {
+	srcFile, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer srcFile.Close()
+
+	dstFile, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	return err
+}
+
+func mcpToolkitRoot() (string, error) {
+	homeDir, err := user.HomeDir()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(homeDir, ".docker", "mcp"), nil
 }

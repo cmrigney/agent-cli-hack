@@ -86,6 +86,7 @@ func runCommand() *cobra.Command {
 	options := agentrunner.Options{
 		Model:         "gpt-4o",
 		UseLocalFiles: false,
+		CagentPath:    "../cagent/bin/cagent", // assume it's one level up
 	}
 
 	cmd := &cobra.Command{
@@ -99,6 +100,7 @@ func runCommand() *cobra.Command {
 
 	cmd.Flags().StringVar(&options.Model, "model", "gpt-4o", "Model to use for the agents")
 	cmd.Flags().BoolVar(&options.UseLocalFiles, "use-local", false, "Use local files instead of fetching from the registry")
+	cmd.Flags().StringVar(&options.CagentPath, "cagent", "../cagent/bin/cagent", "Path to the cagent binary")
 
 	return cmd
 }
