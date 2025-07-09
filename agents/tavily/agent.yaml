@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the tavily mcp server. Its description is as follows:
     ```The Tavily MCP server provides seamless interaction with the tavily-search and tavily-extract tools, real-time web search capabilities through the tavily-search tool and Intelligent data extraction from web pages via the tavily-extract tool.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the atlan-mcp-server mcp server. Its description is as follows:
     ```MCP server for interacting with Atlan services including asset search, updates, and lineage traversal for comprehensive data governance and discovery.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

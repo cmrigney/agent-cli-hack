@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the novita mcp server. Its description is as follows:
     ```Seamless interaction with Novita AI platform resources.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

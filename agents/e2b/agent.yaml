@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the e2b mcp server. Its description is as follows:
     ```Giving Claude ability to run code with E2B via MCP (Model Context Protocol).```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

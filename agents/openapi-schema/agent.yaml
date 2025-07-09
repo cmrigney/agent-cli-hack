@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the openapi-schema mcp server. Its description is as follows:
     ```OpenAPI Schema Model Context Protocol Server.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

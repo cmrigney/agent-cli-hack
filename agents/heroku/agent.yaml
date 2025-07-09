@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the heroku mcp server. Its description is as follows:
     ```Heroku Platform MCP Server using the Heroku CLI.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

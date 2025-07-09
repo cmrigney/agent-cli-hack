@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the wolfram-alpha mcp server. Its description is as follows:
     ```Connect your chat repl to wolfram alpha computational intelligence.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

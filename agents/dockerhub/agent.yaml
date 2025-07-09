@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the dockerhub mcp server. Its description is as follows:
     ```Docker Hub official MCP server.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

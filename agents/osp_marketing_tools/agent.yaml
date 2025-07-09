@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the osp_marketing_tools mcp server. Its description is as follows:
     ```A Model Context Protocol (MCP) server that empowers LLMs to use some of Open Srategy Partners' core writing and product marketing techniques.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

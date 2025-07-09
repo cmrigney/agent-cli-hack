@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the render mcp server. Its description is as follows:
     ```Interact with your Render resources via LLMs.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

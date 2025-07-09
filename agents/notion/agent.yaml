@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the notion mcp server. Its description is as follows:
     ```Official Notion MCP Server.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

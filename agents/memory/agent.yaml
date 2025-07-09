@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the memory mcp server. Its description is as follows:
     ```Knowledge graph-based persistent memory system.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the git mcp server. Its description is as follows:
     ```Git repository interaction and automation.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

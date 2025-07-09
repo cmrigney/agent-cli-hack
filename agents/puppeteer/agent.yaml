@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the puppeteer mcp server. Its description is as follows:
     ```Browser automation and web scraping using Puppeteer.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

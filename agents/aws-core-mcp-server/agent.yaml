@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the aws-core-mcp-server mcp server. Its description is as follows:
     ```Starting point for using the awslabs MCP servers.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

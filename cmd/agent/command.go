@@ -107,11 +107,14 @@ func listCommand() *cobra.Command {
 
 func runCommand() *cobra.Command {
 	options := agentrunner.Options{
-		Model:         "gpt-4o",
-		UseLocalFiles: false,
-		CagentPath:    "../cagent/bin/cagent", // assume it's one level up
-		Web:           false,
-		Debug:         false,
+		Model:          "gpt-4o",
+		UseLocalFiles:  false,
+		CagentPath:     "../cagent/bin/cagent", // assume it's one level up
+		Web:            false,
+		Debug:          false,
+		Think:          true,
+		ThinkSubAgents: true,
+		Todo:           false,
 	}
 
 	cmd := &cobra.Command{
@@ -128,6 +131,9 @@ func runCommand() *cobra.Command {
 	cmd.Flags().StringVar(&options.CagentPath, "cagent", "../cagent/bin/cagent", "Path to the cagent binary")
 	cmd.Flags().BoolVar(&options.Web, "web", false, "Run the cagent web interface instead of the CLI")
 	cmd.Flags().BoolVar(&options.Debug, "debug", false, "Debug mode provides verbose output")
+	cmd.Flags().BoolVar(&options.Think, "think", true, "Enable thinking for the coordinator")
+	cmd.Flags().BoolVar(&options.ThinkSubAgents, "think-subagents", true, "Enable thinking for subagents")
+	cmd.Flags().BoolVar(&options.Todo, "todo", false, "Enable todo list for the coordinator")
 
 	return cmd
 }

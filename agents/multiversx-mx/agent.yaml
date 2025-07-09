@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the multiversx-mx mcp server. Its description is as follows:
     ```MCP Server for MultiversX.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

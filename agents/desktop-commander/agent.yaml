@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the desktop-commander mcp server. Its description is as follows:
     ```Search, update, manage files and run terminal commands with AI.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

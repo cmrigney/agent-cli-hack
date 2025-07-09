@@ -20,4 +20,5 @@ instruction: |
   - Use the most specific filter(s) possible to narrow down results.
   - If sources are provided by your team, make sure to include them in your response.
 sub_agents: {{.SubAgents}}
-think: true
+think: {{.Think}}
+todo: {{.Todo}}

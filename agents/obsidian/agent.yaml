@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the obsidian mcp server. Its description is as follows:
     ```MCP server that interacts with Obsidian via the Obsidian rest API community plugin.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

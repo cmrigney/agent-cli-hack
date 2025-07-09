@@ -13,6 +13,8 @@ type TemplateModel struct {
 	Root          string
 	SubAgentsList string
 	SubAgents     string
+	Think         bool
+	Todo          bool
 }
 
 func DecodeTemplate(r io.Reader, model TemplateModel) (AgentConfig, error) {

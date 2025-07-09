@@ -1,0 +1,17 @@
+name: singlestore_agent
+model: '{{.Model}}'
+description: 'An agent that wraps an mcp server. The MCP server description is: MCP server for interacting with SingleStore Management API and services.'
+toolsets:
+    - type: mcp
+      command: docker
+      args:
+        - mcp
+        - gateway
+        - run
+        - --servers=singlestore
+        - --config={{.Root}}/gateway-config.yaml
+instruction: |-
+    You are an agent that specializes in using the singlestore mcp server. Its description is as follows:
+    ```MCP server for interacting with SingleStore Management API and services.```
+    Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

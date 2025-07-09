@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/cmrigney/agent-cli-hack/internal/config"
 	"github.com/docker/mcp-registry/pkg/catalog"
@@ -31,6 +32,8 @@ func main() {
 			log.Fatal(err)
 		}
 
+		b = []byte(hackyInsertTemplates(string(b)))
+
 		if err := os.WriteFile(filepath.Join("agents", server.Name, "agent.yaml"), b, 0644); err != nil {
 			log.Fatal(err)
 		}
@@ -52,6 +55,12 @@ func readCatalog() (catalog.TileList, error) {
 	return catalog.Registry, nil
 }
 
+func hackyInsertTemplates(agentConfig string) string {
+	agentConfig = strings.Replace(agentConfig, "think: true", "think: {{.Think}}", 1)
+	agentConfig = strings.Replace(agentConfig, "todo: false", "todo: {{.Todo}}", 1)
+	return agentConfig
+}
+
 func convertToAgentConfig(server catalog.TileEntry) config.AgentConfig {
 	return config.AgentConfig{
 		Name:        server.Name + "_agent",
@@ -71,5 +80,7 @@ func convertToAgentConfig(server catalog.TileEntry) config.AgentConfig {
 				},
 			},
 		},
+		Think: true,
+		Todo:  false,
 	}
 }

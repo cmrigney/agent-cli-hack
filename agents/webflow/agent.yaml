@@ -14,3 +14,4 @@ instruction: |-
     You are an agent that specializes in using the webflow mcp server. Its description is as follows:
     ```Model Context Protocol (MCP) server for the Webflow Data API.```
     Your purpose is to fulfill requests using the mcp server tools provided.
+think: {{.Think}}

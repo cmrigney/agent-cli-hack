@@ -15,11 +15,14 @@ import (
 )
 
 type Options struct {
-	Model         string
-	UseLocalFiles bool
-	CagentPath    string
-	Web           bool
-	Debug         bool
+	Model          string
+	UseLocalFiles  bool
+	CagentPath     string
+	Web            bool
+	Debug          bool
+	Think          bool
+	ThinkSubAgents bool
+	Todo           bool
 }
 
 func (o *Options) Validate() error {
@@ -72,6 +75,9 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 	templateModel := config.TemplateModel{
 		Model: r.options.Model,
 		Root:  tempDir,
+		Think: r.options.ThinkSubAgents,
+		// Default for subagents, not affected by flag
+		Todo: false,
 	}
 
 	agents, err := registry.GetRegisteredAgents(ctx, templateModel, r.options.UseLocalFiles)
@@ -95,6 +101,9 @@ func (r *AgentRunner) Run(ctx context.Context) error {
 
 	templateModel.SubAgentsList = subAgentsListString
 	templateModel.SubAgents = subAgentsString
+	// Use flag for coordinator
+	templateModel.Think = r.options.Think
+	templateModel.Todo = r.options.Todo
 
 	coordinator, err := config.GetCoordinatorConfig(ctx, "devex", templateModel, r.options.UseLocalFiles)
 	if err != nil {
