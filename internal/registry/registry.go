@@ -9,8 +9,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// https://raw.githubusercontent.com/cmrigney/agent-cli-hack/refs/heads/main/agents/astra-db/agent.yaml
-
 func EnableAgent(ctx context.Context, name string, useLocal bool) error {
 	if err := ensureRegistryFile(); err != nil {
 		return err
