@@ -113,7 +113,7 @@ func runCommand() *cobra.Command {
 		Web:            false,
 		Debug:          false,
 		Think:          true,
-		ThinkSubAgents: true,
+		ThinkSubAgents: false,
 		Todo:           false,
 	}
 
@@ -132,7 +132,7 @@ func runCommand() *cobra.Command {
 	cmd.Flags().BoolVar(&options.Web, "web", false, "Run the cagent web interface instead of the CLI")
 	cmd.Flags().BoolVar(&options.Debug, "debug", false, "Debug mode provides verbose output")
 	cmd.Flags().BoolVar(&options.Think, "think", true, "Enable thinking for the coordinator")
-	cmd.Flags().BoolVar(&options.ThinkSubAgents, "think-subagents", true, "Enable thinking for subagents")
+	cmd.Flags().BoolVar(&options.ThinkSubAgents, "think-subagents", false, "Enable thinking for subagents")
 	cmd.Flags().BoolVar(&options.Todo, "todo", false, "Enable todo list for the coordinator")
 
 	return cmd
