@@ -48,7 +48,8 @@ Note, all the agents thus far are auto-generated from the [Docker MCP registry](
 **Run the Agent Team**:
 
 Prereqs:
-- You must have `OPENAI_API_KEY` set as an environment variable. Currently, the only supported model is `gpt-4o` but it would be easy to add more!
+- If using the `gpt-4o` model (the default), you must have `OPENAI_API_KEY` set as an environment variable.
+- If you are using an Anthropic model like `claude-4-sonnet-latest` or `claude-3-sonnet-latest`, you must have `ANTHROPIC_API_KEY` set as an environment variable.
 - You must have configured all the tools used by the agents in the MCP Toolkit of Docker Desktop (agents correspond directly to their MCP server counterpart).
 
 You can run the coordinator agent along with the subagents you've enabled. This command basically prepares all the configuration needed and runs cagent.
